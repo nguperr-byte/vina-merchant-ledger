@@ -1,0 +1,6 @@
+{
+  "name": "Vina",
+  "description": "Credit, inventory, request, payment, and expenditure ledger for Vina commodity business.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

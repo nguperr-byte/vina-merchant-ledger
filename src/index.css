@@ -1,0 +1,347 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Public+Sans:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Public Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Public Sans", "Inter", sans-serif;
+  --font-mono: "Roboto Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Base Body Styles - Adaptable to selected user background */
+body {
+  background-color: var(--body-bg, #F4F5F7);
+  color: var(--text-primary, #1F2937);
+  font-family: "Inter", "Public Sans", sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Tabular numeric alignment helper to match decimals precisely */
+.tabular-nums {
+  font-variant-numeric: tabular-nums !important;
+  font-family: "Roboto Mono", monospace !important;
+  letter-spacing: -0.02em;
+}
+
+/* Custom premium scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--text-muted, #94A3B8);
+  border-radius: 9999px;
+  opacity: 0.4;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #10B981;
+}
+
+/* Typography styles for modern premium iOS/banking feel */
+h1, h2, h3, .serif-title {
+  font-family: "Public Sans", "Inter", sans-serif !important;
+  letter-spacing: -0.03em !important;
+}
+
+/* Global Bento Styles Override - Mapping to Dynamic Adaptive Theme */
+#customers-view-container .bg-white,
+#transactions-view-container .bg-white,
+#commodities-view-container .bg-white,
+#notepad-view .bg-white,
+#reports-view-container .bg-white,
+.card-bento {
+  background-color: var(--card-bg, #FFFFFF) !important;
+  border: 1px solid var(--card-border, #E2E8F0) !important;
+  color: var(--text-primary, #0F172A) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.025) !important;
+  border-radius: 20px !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Text color overrides to ensure absolute legibility in both modes */
+#customers-view-container .text-slate-900,
+#customers-view-container .text-slate-800,
+#transactions-view-container .text-slate-900,
+#transactions-view-container .text-slate-800,
+#commodities-view-container .text-slate-900,
+#commodities-view-container .text-slate-800,
+#notepad-view .text-slate-900,
+#notepad-view .text-slate-800,
+#reports-view-container .text-slate-900,
+#reports-view-container .text-slate-800,
+#customers-view-container .text-white,
+#transactions-view-container .text-white,
+#commodities-view-container .text-white,
+#notepad-view .text-white,
+#reports-view-container .text-white {
+  color: var(--text-primary, #0F172A) !important;
+}
+
+#customers-view-container .text-slate-700,
+#customers-view-container .text-slate-600,
+#transactions-view-container .text-slate-700,
+#transactions-view-container .text-slate-600,
+#commodities-view-container .text-slate-700,
+#commodities-view-container .text-slate-600,
+#notepad-view .text-slate-700,
+#notepad-view .text-slate-600,
+#reports-view-container .text-slate-700,
+#reports-view-container .text-slate-600 {
+  color: var(--text-secondary, #475569) !important;
+}
+
+#customers-view-container .text-slate-500,
+#transactions-view-container .text-slate-500,
+#commodities-view-container .text-slate-500,
+#notepad-view .text-slate-500,
+#reports-view-container .text-slate-500 {
+  color: var(--text-muted, #94A3B8) !important;
+}
+
+/* Border colors override */
+#customers-view-container .border-slate-50,
+#customers-view-container .border-slate-100,
+#transactions-view-container .border-slate-50,
+#transactions-view-container .border-slate-100,
+#commodities-view-container .border-slate-50,
+#commodities-view-container .border-slate-100,
+#notepad-view .border-slate-50,
+#notepad-view .border-slate-100,
+#reports-view-container .border-slate-50,
+#reports-view-container .border-slate-100,
+#customers-view-container .border-slate-200,
+#transactions-view-container .border-slate-200,
+#commodities-view-container .border-slate-200,
+#notepad-view .border-slate-200,
+#reports-view-container .border-slate-200 {
+  border-color: var(--card-border, #E2E8F0) !important;
+}
+
+/* Table body row hover */
+tr.hover\:bg-slate-50\/40:hover {
+  background-color: rgba(0, 0, 0, 0.015) !important;
+}
+
+/* Backgrounds mapping to adaptive palette */
+#customers-view-container .bg-slate-50,
+#customers-view-container .bg-slate-100,
+#transactions-view-container .bg-slate-50,
+#transactions-view-container .bg-slate-100,
+#commodities-view-container .bg-slate-50,
+#commodities-view-container .bg-slate-100,
+#notepad-view .bg-slate-50,
+#notepad-view .bg-slate-100,
+#reports-view-container .bg-slate-50,
+#reports-view-container .bg-slate-100 {
+  background-color: var(--input-bg, #FFFFFF) !important;
+}
+
+/* Form inputs & interactive controls - Beautiful, Premium input design */
+#customers-view-container input,
+#customers-view-container select,
+#customers-view-container textarea,
+#transactions-view-container input,
+#transactions-view-container select,
+#transactions-view-container textarea,
+#commodities-view-container input,
+#commodities-view-container select,
+#commodities-view-container textarea,
+#notepad-view input,
+#notepad-view select,
+#notepad-view textarea,
+#reports-view-container input,
+#reports-view-container select,
+#reports-view-container textarea,
+div.fixed.inset-0 input,
+div.fixed.inset-0 select,
+div.fixed.inset-0 textarea {
+  background-color: var(--input-bg, #FFFFFF) !important;
+  border: 1px solid var(--input-border, #CBD5E1) !important;
+  color: var(--text-primary, #0F172A) !important;
+  border-radius: 12px !important;
+  padding: 10px 14px !important;
+  outline: none !important;
+  transition: all 0.2s ease !important;
+}
+
+#customers-view-container input:focus,
+#customers-view-container select:focus,
+#customers-view-container textarea:focus,
+#transactions-view-container input:focus,
+#transactions-view-container select:focus,
+#transactions-view-container textarea:focus,
+#commodities-view-container input:focus,
+#commodities-view-container select:focus,
+#commodities-view-container textarea:focus,
+#notepad-view input:focus,
+#notepad-view select:focus,
+#notepad-view textarea:focus,
+#reports-view-container input:focus,
+#reports-view-container select:focus,
+#reports-view-container textarea:focus,
+div.fixed.inset-0 input:focus,
+div.fixed.inset-0 select:focus,
+div.fixed.inset-0 textarea:focus {
+  border-color: #10B981 !important;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.12) !important;
+}
+
+#customers-view-container input::placeholder,
+#transactions-view-container input::placeholder,
+#commodities-view-container input::placeholder,
+#notepad-view input::placeholder,
+#reports-view-container input::placeholder,
+div.fixed.inset-0 input::placeholder {
+  color: var(--text-muted, #94A3B8) !important;
+  opacity: 0.8;
+}
+
+/* Button overrides - iOS style buttons */
+#customers-view-container button[class*="bg-white"],
+#transactions-view-container button[class*="bg-white"],
+#commodities-view-container button[class*="bg-white"],
+#notepad-view button[class*="bg-white"],
+#reports-view-container button[class*="bg-white"] {
+  background-color: var(--btn-secondary-bg, #FFFFFF) !important;
+  border: 1px solid var(--btn-secondary-border, #E2E8F0) !important;
+  color: var(--btn-secondary-text, #334155) !important;
+  border-radius: 12px !important;
+  transition: all 0.2s ease !important;
+}
+
+#customers-view-container button[class*="bg-white"]:hover,
+#transactions-view-container button[class*="bg-white"]:hover,
+#commodities-view-container button[class*="bg-white"]:hover,
+#notepad-view button[class*="bg-white"]:hover,
+#reports-view-container button[class*="bg-white"]:hover {
+  background-color: var(--card-border, #E2E8F0) !important;
+  color: var(--text-primary, #0F172A) !important;
+}
+
+#customers-view-container button[class*="bg-slate-900"],
+#transactions-view-container button[class*="bg-slate-900"],
+#commodities-view-container button[class*="bg-slate-900"],
+#notepad-view button[class*="bg-slate-900"],
+#reports-view-container button[class*="bg-slate-900"] {
+  background-color: #10B981 !important;
+  color: #FFFFFF !important;
+  border-radius: 12px !important;
+  border: none !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15) !important;
+}
+
+#customers-view-container button[class*="bg-slate-900"]:hover,
+#transactions-view-container button[class*="bg-slate-900"]:hover,
+#commodities-view-container button[class*="bg-slate-900"]:hover,
+#notepad-view button[class*="bg-slate-900"]:hover,
+#reports-view-container button[class*="bg-slate-900"]:hover {
+  background-color: #059669 !important;
+}
+
+/* Brand tag color mappings with smooth opacity */
+.bg-amber-50 {
+  background-color: rgba(245, 158, 11, 0.08) !important;
+  color: #D97706 !important;
+  border: 1px solid rgba(245, 158, 11, 0.15) !important;
+}
+
+.bg-emerald-50 {
+  background-color: rgba(16, 185, 129, 0.08) !important;
+  color: #059669 !important;
+  border: 1px solid rgba(16, 185, 129, 0.15) !important;
+}
+
+.bg-blue-50 {
+  background-color: rgba(59, 130, 246, 0.08) !important;
+  color: #2563EB !important;
+  border: 1px solid rgba(59, 130, 246, 0.15) !important;
+}
+
+.bg-rose-50 {
+  background-color: rgba(239, 68, 68, 0.08) !important;
+  color: #DC2626 !important;
+  border: 1px solid rgba(239, 68, 68, 0.15) !important;
+}
+
+.bg-indigo-50 {
+  background-color: rgba(99, 102, 241, 0.08) !important;
+  color: #4F46E5 !important;
+  border: 1px solid rgba(99, 102, 241, 0.15) !important;
+}
+
+/* Modals backdrop overlays and dialog inner boxes style mappings */
+.fixed.inset-0.bg-slate-900\/40 {
+  background-color: rgba(15, 23, 42, 0.3) !important;
+  backdrop-filter: blur(8px) !important;
+}
+
+.fixed.inset-0.bg-slate-900\/40 > div,
+div.fixed.inset-0 .bg-white {
+  background-color: var(--card-bg, #FFFFFF) !important;
+  border: 1px solid var(--card-border, #E2E8F0) !important;
+  color: var(--text-primary, #0F172A) !important;
+  border-radius: 24px !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08) !important;
+}
+
+div.fixed.inset-0 .text-slate-800,
+div.fixed.inset-0 .text-slate-900 {
+  color: var(--text-primary, #0F172A) !important;
+}
+
+div.fixed.inset-0 .text-slate-500,
+div.fixed.inset-0 .text-slate-600 {
+  color: var(--text-secondary, #475569) !important;
+}
+
+div.fixed.inset-0 .bg-slate-50,
+div.fixed.inset-0 .bg-slate-100 {
+  background-color: var(--input-bg, #FFFFFF) !important;
+}
+
+div.fixed.inset-0 button[class*="bg-white"],
+div.fixed.inset-0 button[class*="bg-slate-50"] {
+  background-color: var(--btn-secondary-bg, #FFFFFF) !important;
+  border: 1px solid var(--btn-secondary-border, #E2E8F0) !important;
+  color: var(--btn-secondary-text, #334155) !important;
+}
+
+div.fixed.inset-0 button[class*="bg-slate-900"] {
+  background-color: #10B981 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15) !important;
+}
+
+div.fixed.inset-0 button[class*="bg-slate-900"]:hover {
+  background-color: #059669 !important;
+}
+
+/* Premium Login and PIN container styling overrides */
+#login-container, #pin-lock-container {
+  background-color: var(--body-bg, #F4F5F7) !important;
+}
+
+#login-container > div, #pin-lock-container > div {
+  background-color: var(--card-bg, #FFFFFF) !important;
+  border: 1px solid var(--card-border, #E2E8F0) !important;
+  color: var(--text-primary, #0F172A) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03) !important;
+}
+
+#login-container h1, #pin-lock-container h1 {
+  color: var(--text-primary, #0F172A) !important;
+}
+
+/* Ensure chart container backgrounds match card-bento */
+.recharts-responsive-container {
+  background-color: transparent !important;
+}
+
+/* Perfect alignment alignment for financial tables */
+th, td {
+  letter-spacing: -0.01em;
+}

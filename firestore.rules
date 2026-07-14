@@ -1,0 +1,41 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Default-deny catch-all to prevent unauthorized access to any other path
+    match /{document=**} {
+      allow read, write: if false;
+    }
+    
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    match /customers/{id} {
+      allow read, write: if request.auth != null && (resource == null || !('userId' in resource.data) || resource.data.userId == request.auth.uid || request.resource.data.userId == request.auth.uid);
+    }
+
+    match /commodities/{id} {
+      allow read, write: if request.auth != null && (resource == null || !('userId' in resource.data) || resource.data.userId == request.auth.uid || request.resource.data.userId == request.auth.uid);
+    }
+
+    match /requests/{id} {
+      allow read, write: if request.auth != null && (resource == null || !('userId' in resource.data) || resource.data.userId == request.auth.uid || request.resource.data.userId == request.auth.uid);
+    }
+
+    match /collections/{id} {
+      allow read, write: if request.auth != null && (resource == null || !('userId' in resource.data) || resource.data.userId == request.auth.uid || request.resource.data.userId == request.auth.uid);
+    }
+
+    match /payments/{id} {
+      allow read, write: if request.auth != null && (resource == null || !('userId' in resource.data) || resource.data.userId == request.auth.uid || request.resource.data.userId == request.auth.uid);
+    }
+
+    match /expenditures/{id} {
+      allow read, write: if request.auth != null && (resource == null || !('userId' in resource.data) || resource.data.userId == request.auth.uid || request.resource.data.userId == request.auth.uid);
+    }
+
+    match /notes/{id} {
+      allow read, write: if request.auth != null && (resource == null || !('userId' in resource.data) || resource.data.userId == request.auth.uid || request.resource.data.userId == request.auth.uid);
+    }
+  }
+}

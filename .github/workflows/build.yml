@@ -33,11 +33,10 @@ jobs:
           distribution: 'zulu'
           java-version: '17'
 
-      - name: Clean and Force Regenerate Gradle 8.7 Wrapper
-        run: |
-          cd android
-          rm -f gradle/wrapper/gradle-wrapper.jar
-          gradle wrapper --gradle-version 8.7 --distribution-type bin
+      - name: Setup Gradle 8.7 Environment
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: 8.7
 
       - name: Build Android Dev APK
         run: |
